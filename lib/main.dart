@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:printer_1/views/screens/AddcomplaintList.dart';
 import 'package:printer_1/views/screens/complait.dart';
 import 'package:printer_1/views/screens/datelist.dart';
 import 'package:printer_1/views/screens/eye-page.dart';
@@ -11,8 +12,8 @@ void main() {
       routes: {
         '/' : (context) => HomePage(),
         'EyePage' : (context) => EyePage(),
-        'DateList' : (context) => DateList(),
         'Complaint' : (context) => Complaint(),
+        'AddComplaintList' : (context) => AddComplaintList(),
       },
     ),
   );

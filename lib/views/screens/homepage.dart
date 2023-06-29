@@ -1,19 +1,7 @@
 import 'package:flutter/material.dart';
 
-class SizeConfig {
-  static late MediaQueryData _mediaQueryData;
-  static late double screenWidth;
-  static late double screenHeight;
-  static double? defaultSize;
-  static Orientation? orientation;
+import '../../class/allClass.dart';
 
-  void init(BuildContext context) {
-    _mediaQueryData = MediaQuery.of(context);
-    screenWidth = _mediaQueryData.size.width;
-    screenHeight = _mediaQueryData.size.height;
-    orientation = _mediaQueryData.orientation;
-  }
-}
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -70,10 +58,16 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: Colors.grey[200],
       appBar: AppBar(
         centerTitle: true,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pushNamed(context, 'AddComplaintList');
+          },
+          icon: Icon(Icons.ac_unit),
+        ),
         title: Text(
           "Employee",
           style: TextStyle(
-              fontSize: 20, letterSpacing: 1, fontWeight: FontWeight.w400),
+              fontSize: SizeConfig.screenHeight * 0.023, letterSpacing: 1, fontWeight: FontWeight.w400),
         ),
         actions: [
           IconButton(onPressed: () {
@@ -85,15 +79,15 @@ class _HomePageState extends State<HomePage> {
           itemCount: Data.length,
           itemBuilder: (context, index) {
             return Padding(
-              padding: const EdgeInsets.only(left: 15.0, right: 15, top: 15),
+              padding:  EdgeInsets.only(left: getProportionateScreenHeight(15), right: getProportionateScreenHeight(15), top: getProportionateScreenHeight(15)),
               child: Container(
                   width: SizeConfig.screenWidth,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(13),
+                    borderRadius: BorderRadius.circular(getProportionateScreenHeight(13)),
                     color: Colors.white,
                   ),
                   child: Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding:  EdgeInsets.all(getProportionateScreenHeight(8)),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -109,11 +103,11 @@ class _HomePageState extends State<HomePage> {
                                 Container(
                                   width: SizeConfig.screenWidth * .75,
                                   child: Padding(
-                                    padding: const EdgeInsets.only(left: 8.0),
+                                    padding:  EdgeInsets.only(left: getProportionateScreenHeight(8)),
                                     child: Text(
                                       "${Data[index]['name']}",
                                       style: TextStyle(
-                                          fontSize: 19, letterSpacing: 1),
+                                          fontSize: SizeConfig.screenHeight * 0.022, letterSpacing: 1),
                                     ),
                                   ),
                                 ),
@@ -131,7 +125,7 @@ class _HomePageState extends State<HomePage> {
                               ],
                             ),
                             SizedBox(
-                              height: 5,
+                              height: getProportionateScreenWidth(5),
                             ),
                             Row(
                               children: [
@@ -142,18 +136,18 @@ class _HomePageState extends State<HomePage> {
                                 Container(
                                   width: SizeConfig.screenWidth * .75,
                                   child: Padding(
-                                    padding: const EdgeInsets.only(left: 8.0),
+                                    padding:  EdgeInsets.only(left: getProportionateScreenHeight(8)),
                                     child: Text(
                                       "${Data[index]['contact']}",
                                       style: TextStyle(
-                                          fontSize: 19, letterSpacing: 1),
+                                          fontSize: SizeConfig.screenHeight * 0.022, letterSpacing: 1),
                                     ),
                                   ),
                                 ),
                               ],
                             ),
                             SizedBox(
-                              height: 5,
+                              height: getProportionateScreenWidth(5),
                             ),
                             Row(
                               children: [
@@ -165,11 +159,11 @@ class _HomePageState extends State<HomePage> {
                                   width: SizeConfig.screenWidth * .75,
                                   // height: MediaQuery.of(context).size.height * 0.03,
                                   child: Padding(
-                                    padding: const EdgeInsets.only(left: 8.0),
+                                    padding:  EdgeInsets.only(left: getProportionateScreenHeight(8)),
                                     child: Text(
                                       "${Data[index]['address']}",
                                       style: TextStyle(
-                                          fontSize: 19,
+                                          fontSize: SizeConfig.screenHeight * 0.022,
                                           letterSpacing: 1,
                                           overflow: TextOverflow.clip),
                                     ),
@@ -178,7 +172,7 @@ class _HomePageState extends State<HomePage> {
                               ],
                             ),
                             SizedBox(
-                              height: 5,
+                              height: getProportionateScreenWidth(5),
                             ),
                             Row(
                               children: [
@@ -189,11 +183,11 @@ class _HomePageState extends State<HomePage> {
                                 Container(
                                   width: SizeConfig.screenWidth * .75,
                                   child: Padding(
-                                    padding: const EdgeInsets.only(left: 8.0),
+                                    padding:  EdgeInsets.only(left: getProportionateScreenHeight(8)),
                                     child: Text(
                                       "${Data[index]['salary']}",
                                       style: TextStyle(
-                                          fontSize: 19, letterSpacing: 1),
+                                          fontSize: SizeConfig.screenHeight * 0.022, letterSpacing: 1),
                                     ),
                                   ),
                                 ),

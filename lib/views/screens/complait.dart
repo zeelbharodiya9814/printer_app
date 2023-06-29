@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../class/allClass.dart';
 import 'homepage.dart';
 
 
@@ -13,6 +14,7 @@ class Complaint extends StatefulWidget {
 class _ComplaintState extends State<Complaint> {
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return Scaffold(
       backgroundColor: Colors.grey[200],
       appBar: AppBar(
